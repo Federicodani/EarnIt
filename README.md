@@ -1,85 +1,67 @@
-# Earnova Station — Full Stack MERN App
+# Earnova Station — MERN Stack App
 
-A complete clone of [earnovastation.co.ke](https://earnovastation.co.ke) built with the **MERN stack** (MongoDB, Express, React, Node.js). Features a captivating dark teal design system with all original features replicated and expanded.
-
----
-
-## 🌟 Features Implemented
-
-### Public Pages
-- **Landing Page** — Hero, animated stat counters, How It Works (4-step), Testimonials, FAQ accordion, Telegram CTA, newsletter signup, final CTA
-- **How It Works Page** — Detailed 5-step process, Membership Tier breakdown, Success Tips grid
-- **Login Page** — Split-panel layout, email/password login, "Remember me", show/hide password, Forgot Password link, Telegram CTA, Login/Register tab switcher
-- **Register Page** — 2-step form wizard (Personal Info → Account Setup), country selector, password confirmation, terms agreement
-- **Forgot Password Page** — Dual-field identity verification (email + phone), new password step, success confirmation screen
-
-### Authenticated Pages
-- **Dashboard** — Welcome banner with balance, 4-stat grid (earned/tasks/balance/active), task list, quick actions, Telegram card, Membership progress bar
-- **Tasks Page** — Task cards with category filter, difficulty badge, country + time metadata, Start/Submit flow, submission modal with verification code + notes
-- **Withdraw Page** — Method selector (M-Pesa, PayPal, Stripe, Bank Transfer), quick-amount buttons, withdrawal history with status badges
-- **Profile Page** — Avatar with tier badge, tabbed UI (Profile / Stats / Security), editable form, account stats panel
-
-### Backend API
-- `POST /api/auth/register` — Create account with validation
-- `POST /api/auth/login` — JWT authentication
-- `GET  /api/auth/me` — Fetch current user
-- `PUT  /api/auth/update-profile` — Update user details
-- `POST /api/auth/forgot-password` — Verify identity (email + phone)
-- `PUT  /api/auth/reset-password/:token` — Reset with token
-- `GET  /api/tasks/available` — Browse available tasks
-- `POST /api/tasks/:id/start` — Claim a task
-- `PUT  /api/tasks/:id/submit` — Submit task with data
-- `GET  /api/tasks/my-tasks` — User's task history
-- `POST /api/tasks/` *(admin)* — Create a new task
-- `PUT  /api/tasks/review/:id` *(admin)* — Approve/reject submission
-- `POST /api/withdrawals` — Request withdrawal
-- `GET  /api/withdrawals/my` — User's withdrawal history
-- `GET  /api/withdrawals/` *(admin)* — All withdrawals
-- `PUT  /api/withdrawals/:id` *(admin)* — Update withdrawal status
+Full-stack earn-by-verifying platform with package subscriptions paid via M-Pesa.
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Deploy in 10 Minutes
 
-### Prerequisites
-- Node.js v18+
-- MongoDB (local or [MongoDB Atlas](https://cloud.mongodb.com))
-- npm
+### Step 1 — Deploy Backend to Render
 
-### 1. Clone / Extract the project
+1. Push the `server/` folder (or the whole repo) to GitHub
+2. Go to [render.com](https://render.com) → New → Web Service
+3. Connect your repo, set **Root Directory** to `server`
+4. Set:
+   - **Build Command:** `npm install`
+   - **Start Command:** `node index.js`
+5. Add these **Environment Variables**:
+
+| Key | Value |
+|---|---|
+| `MONGO_URI` | Your MongoDB Atlas connection string |
+| `JWT_SECRET` | Any long random string |
+| `JWT_EXPIRE` | `7d` |
+| `CLIENT_URL` | Your Vercel URL (add after step 2) |
+| `PORT` | `10000` |
+
+6. Deploy — copy the URL (e.g. `https://earnova-api.onrender.com`)
+
+---
+
+### Step 2 — Deploy Frontend to Vercel
+
+1. Go to [vercel.com](https://vercel.com) → New Project → import your repo
+2. Set **Root Directory** to `client`
+3. Vercel auto-detects Vite. Framework preset: **Vite**
+4. Add **Environment Variable**:
+
+| Key | Value |
+|---|---|
+| `VITE_API_URL` | Your Render backend URL (e.g. `https://earnova-api.onrender.com`) |
+
+5. Deploy ✅
+
+6. Go back to Render → update `CLIENT_URL` env var with your Vercel URL
+
+---
+
+## 💻 Run Locally
+
 ```bash
-cd earnova-station
-```
-
-### 2. Install all dependencies
-```bash
+# 1. Install all deps
 npm run install:all
-```
-This installs root, server, and client dependencies in one command.
 
-### 3. Configure environment
-```bash
+# 2. Configure server
 cp server/.env.example server/.env
-```
-Edit `server/.env`:
-```
-MONGO_URI=mongodb://localhost:27017/earnova
-JWT_SECRET=your_super_secret_key_here
-JWT_EXPIRE=7d
-CLIENT_URL=http://localhost:3000
-PORT=5000
-```
+# Edit MONGO_URI and JWT_SECRET
 
-### 4. Run in development mode
-```bash
+# 3. Configure client (optional for local — proxy handles it)
+# No .env needed locally; Vite proxies /api → localhost:5000
+
+# 4. Start everything
 npm run dev
-```
-- **API**: http://localhost:5000
-- **React App**: http://localhost:3000
-
-### 5. Build for production
-```bash
-npm run build
+# Frontend: http://localhost:3000
+# Backend:  http://localhost:5000
 ```
 
 ---
@@ -88,35 +70,34 @@ npm run build
 
 ```
 earnova-station/
-├── package.json              # Root scripts (run both together)
-├── README.md
+├── render.yaml               # Render deploy config
+├── package.json              # Root: run both together
 │
-├── server/                   # Express + MongoDB API
-│   ├── index.js              # Entry point
-│   ├── package.json
+├── server/                   # Node/Express API (deploy to Render)
+│   ├── index.js
 │   ├── .env.example
 │   ├── models/
 │   │   ├── User.js
 │   │   ├── Task.js
 │   │   ├── UserTask.js
-│   │   └── Withdrawal.js
-│   ├── routes/
-│   │   ├── auth.js
-│   │   ├── tasks.js
-│   │   └── withdrawals.js
-│   └── middleware/
-│       └── auth.js
+│   │   ├── Withdrawal.js
+│   │   └── PackagePurchase.js
+│   └── routes/
+│       ├── auth.js
+│       ├── tasks.js
+│       ├── withdrawals.js
+│       └── packages.js
 │
-└── client/                   # React frontend
-    ├── package.json
-    ├── public/
-    │   └── index.html
+└── client/                   # React + Vite (deploy to Vercel)
+    ├── index.html            # Vite entry
+    ├── vite.config.js
+    ├── vercel.json           # SPA routing fix
+    ├── .env.example
     └── src/
+        ├── main.jsx
         ├── App.js
-        ├── index.js
-        ├── index.css            # Global design system
-        ├── context/
-        │   └── AuthContext.js
+        ├── index.css
+        ├── context/AuthContext.js
         ├── components/
         │   ├── Navbar.js
         │   └── Footer.js
@@ -126,6 +107,7 @@ earnova-station/
             ├── RegisterPage.js
             ├── ForgotPasswordPage.js
             ├── Dashboard.js
+            ├── PackagesPage.js   ← NEW
             ├── TasksPage.js
             ├── WithdrawPage.js
             ├── ProfilePage.js
@@ -134,30 +116,23 @@ earnova-station/
 
 ---
 
-## 🎨 Design System
+## 📦 Package System
 
-| Token | Value |
-|---|---|
-| Primary Navy | `#0a0f1e` |
-| Card Navy | `#141d2e` |
-| Teal Accent | `#00e5c3` |
-| Gold | `#f5c518` |
-| Violet | `#7c5cfc` |
-| Coral | `#ff6b6b` |
-| Fonts | Syne (headings) + DM Sans (body) |
+| Package | Price | Tasks/Day |
+|---|---|---|
+| 🚀 Starter | KSh 500 | 15/day |
+| ⭐ Standard | KSh 1,000 | 25/day |
+| 💎 Premium | KSh 1,500 | 40/day |
 
----
+**M-Pesa Till Number: `5377179`**
 
-## 🔐 Security Notes
-
-- Passwords hashed with **bcryptjs** (salt rounds: 10)
-- Authentication via signed **JWT tokens**
-- Password reset uses **crypto.randomBytes** token hashed with SHA-256
-- All protected routes validated via `protect` middleware
-- Admin routes additionally gated with `adminOnly` middleware
+Flow: User selects plan → sends M-Pesa to till → submits transaction code → admin approves → package activates.
 
 ---
 
-## 📞 Support & Community
+## 🔐 Tech Stack
 
-Join the Telegram community: [t.me/+3E7iJLy_94MyMzg0](https://t.me/+3E7iJLy_94MyMzg0)
+- **Frontend:** React 18 + Vite 5 + React Router 6
+- **Backend:** Express 4 + MongoDB + Mongoose
+- **Auth:** JWT (jsonwebtoken + bcryptjs)
+- **Payments:** M-Pesa manual verification

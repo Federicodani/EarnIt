@@ -4,7 +4,11 @@ import axios from 'axios';
 const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
-const API = axios.create({ baseURL: '/api' });
+// In production the VITE_API_URL env var points to Render backend.
+// In development the Vite proxy forwards /api -> localhost:5000.
+const BASE_URL = import.meta.env.VITE_API_URL || '';
+
+const API = axios.create({ baseURL: `${BASE_URL}/api` });
 
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem('earnova_token');
