@@ -19,19 +19,20 @@ const CountUp = ({ end, prefix = '', suffix = '' }) => {
 };
 
 const testimonials = [
-  { name: 'Sarah J.', role: 'Full-time mom, Chicago', quote: "I've been with Earnova Station for 6 months and consistently earn $1,200/month working just 3 hours daily. The flexibility allows me to care for my kids while earning a real income.", avatar: 'SJ', color: '#00e5c3' },
-  { name: 'David M.', role: 'College student, Boston', quote: "Earnova Station has been a game-changer. I verify packages between classes and earn enough to cover my rent. The tasks are simple and payments are always on time.", avatar: 'DM', color: '#7c5cfc' },
-  { name: 'Melissa T.', role: 'Marketing professional, Austin', quote: "After losing my job, I needed something flexible. Earnova Station provided steady income while I searched for a new position. Now I keep it as a side hustle bringing in $700+ monthly.", avatar: 'MT', color: '#f5c518' },
+  { name: 'Sarah J.', role: 'Full-time mom, Chicago', quote: "I've been with Earn It for 6 months and consistently earn $1,200/month working just 3 hours daily. The flexibility allows me to care for my kids while earning a real income.", avatar: 'SJ', color: '#00e5c3' },
+  { name: 'David M.', role: 'College student, Boston', quote: "Earn It has been a game-changer. I verify packages between classes and earn enough to cover my rent. The tasks are simple and payments are always on time.", avatar: 'DM', color: '#7c5cfc' },
+  { name: 'Melissa T.', role: 'Marketing professional, Austin', quote: "After losing my job, I needed something flexible. Earn It provided steady income while I searched for a new position. Now I keep it as a side hustle bringing in $700+ monthly.", avatar: 'MT', color: '#f5c518' },
 ];
 
 const faqs = [
   { q: 'How much can I really earn?', a: 'Most active verifiers earn between $500–$2000 per month, depending on time invested and tasks completed. Each verification task pays $2–$10.' },
   { q: 'Do I need special equipment or skills?', a: "No special equipment or skills required! You just need a smartphone or computer with internet access. Our platform is designed to be intuitive and user-friendly." },
   { q: 'How and when do I get paid?', a: 'Payments are processed weekly via PayPal, Stripe, M-Pesa, or direct bank transfer. Once you reach the $50 threshold, you can request a payout anytime.' },
-  { q: 'Is this available in my country?', a: 'Earnova Station operates in over 30 countries worldwide, including the US, UK, Canada, Australia, Kenya, and most European countries.' },
+  { q: 'Is this available in my country?', a: 'Earn It operates in over 30 countries worldwide, including the US, UK, Canada, Australia, Kenya, and most European countries.' },
   { q: 'How much time do I need to commit?', a: "That's completely up to you! There are no minimum hours required. Some users verify packages for just 1–2 hours daily, while others treat it as a full-time opportunity." },
-  { q: 'Are there any fees to join?', a: "Absolutely not! Earnova Station is 100% free to join. We make our revenue from e-commerce companies, not from our verifiers." },
+  { q: 'Are there any fees to join?', a: "Absolutely not! Earn It is 100% free to join. We make our revenue from e-commerce companies, not from our verifiers." },
 ];
+
 
 const LandingPage = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -108,7 +109,7 @@ const LandingPage = () => {
       {/* How It Works */}
       <section className="section" id="how-it-works">
         <div className="container">
-          <h2 className="section-title">How <span>Earnova Station</span> Works</h2>
+          <h2 className="section-title">How <span>Earn It</span> Works</h2>
           <p className="section-subtitle">Get started in minutes and begin earning from verified e-commerce tasks worldwide.</p>
           <div className="grid-4">
             {[
@@ -191,7 +192,7 @@ const LandingPage = () => {
         <div className="container">
           <div style={{ background: 'linear-gradient(135deg, rgba(0,229,195,0.08), rgba(124,92,252,0.08))', border: '1px solid var(--border)', borderRadius: 24, padding: 'clamp(40px, 6vw, 80px)', position: 'relative', overflow: 'hidden' }}>
             <h2 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 3rem)', marginBottom: 16 }}>
-              Ready to Start Earning With<br /><span className="glow-text">Earnova Station?</span>
+              Ready to Start Earning With<br /><span className="glow-text">Earn It?</span>
             </h2>
             <p style={{ color: 'var(--muted)', marginBottom: 36, fontSize: '1.05rem' }}>Join 15,000+ verifiers already making money. Sign up takes less than 2 minutes!</p>
             <Link to="/register"><button className="btn-primary" style={{ fontSize: '1.05rem', padding: '18px 44px' }}>Create Your Free Account →</button></Link>

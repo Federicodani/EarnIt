@@ -38,7 +38,7 @@ const Navbar = ({ transparent = false }) => {
       <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
           <div style={{ width: 36, height: 36, background: 'linear-gradient(135deg,#00e5c3,#00a3e0)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>⚡</div>
-          <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.2rem', color: 'var(--white)' }}>Earnova<span style={{ color: 'var(--teal)' }}>Station</span></span>
+          <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.2rem', color: 'var(--white)' }}>Earn<span style={{ color: 'var(--teal)' }}>It</span></span>
         </Link>
 
         {/* Desktop nav */}

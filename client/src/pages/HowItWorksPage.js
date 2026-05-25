@@ -28,7 +28,7 @@ const HowItWorksPage = () => (
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <span className="badge badge-teal" style={{ marginBottom: 20, display: 'inline-flex' }}>Simple & Transparent Process</span>
         <h1 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 3.5rem)', marginBottom: 16, lineHeight: 1.1 }}>
-          How <span className="glow-text">Earnova Station</span> Works
+          How <span className="glow-text">Earn It</span> Works
         </h1>
         <p style={{ color: 'var(--muted)', fontSize: '1.1rem', maxWidth: 560, margin: '0 auto 40px', lineHeight: 1.8 }}>
           From sign-up to your first payout — here's everything you need to know about earning with us.

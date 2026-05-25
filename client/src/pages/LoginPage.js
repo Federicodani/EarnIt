@@ -40,10 +40,10 @@ const LoginPage = () => {
           <div style={{ position: 'relative', zIndex: 1 }}>
             <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 48 }}>
               <div style={{ width: 40, height: 40, background: 'linear-gradient(135deg,#00e5c3,#00a3e0)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20 }}>⚡</div>
-              <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.3rem' }}>Earnova<span style={{ color: 'var(--teal)' }}>Station</span></span>
+              <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.3rem' }}>Earn<span style={{ color: 'var(--teal)' }}>It</span></span>
             </Link>
             <h1 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', lineHeight: 1.2, marginBottom: 16 }}>
-              Welcome to<br /><span className="glow-text">Earnova Station</span>
+              Welcome to<br /><span className="glow-text">Earn It</span>
             </h1>
             <p style={{ color: 'var(--muted)', lineHeight: 1.8, marginBottom: 40, fontSize: '1rem' }}>
               Join our global network of verifiers and start earning money today by completing simple e-commerce verification tasks.

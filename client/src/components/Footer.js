@@ -8,7 +8,7 @@ const Footer = () => (
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
             <div style={{ width: 36, height: 36, background: 'linear-gradient(135deg,#00e5c3,#00a3e0)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>⚡</div>
-            <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.1rem' }}>Earnova<span style={{ color: 'var(--teal)' }}>Station</span></span>
+            <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.1rem' }}>Earn<span style={{ color: 'var(--teal)' }}>It</span></span>
           </div>
           <p style={{ color: 'var(--muted)', fontSize: '0.9rem', lineHeight: 1.7, maxWidth: 260 }}>
             Turn package verification into real income. Work from anywhere, anytime.
@@ -60,7 +60,7 @@ const Footer = () => (
       </div>
 
       <div style={{ borderTop: '1px solid var(--border)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
-        <p style={{ color: 'var(--muted)', fontSize: '0.82rem' }}>© 2025 Earnova Station. All rights reserved.</p>
+        <p style={{ color: 'var(--muted)', fontSize: '0.82rem' }}>© 2025 Earn It. All rights reserved.</p>
         <div style={{ display: 'flex', gap: 20 }}>
           {['🔒 Secure Payments', '🛡️ Data Protection', '💬 24/7 Support', '✅ Verified Companies'].map(item => (
             <span key={item} style={{ color: 'var(--muted)', fontSize: '0.78rem' }}>{item}</span>

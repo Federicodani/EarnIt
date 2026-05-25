@@ -27,7 +27,7 @@ const RegisterPage = () => {
     setLoading(true);
     try {
       await register(form);
-      toast.success('Account created! Welcome to Earnova Station!');
+      toast.success('Account created! Welcome to Earn It!');
       navigate('/dashboard');
     } catch (err) {
       toast.error(err.response?.data?.message || 'Registration failed');
@@ -45,7 +45,7 @@ const RegisterPage = () => {
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 24 }}>
               <div style={{ width: 40, height: 40, background: 'linear-gradient(135deg,#00e5c3,#00a3e0)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20 }}>⚡</div>
-              <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.3rem' }}>Earnova<span style={{ color: 'var(--teal)' }}>Station</span></span>
+              <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.3rem' }}>Earn<span style={{ color: 'var(--teal)' }}>It</span></span>
             </Link>
             <h1 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: '2rem', marginBottom: 8 }}>Create Your Account</h1>
             <p style={{ color: 'var(--muted)', fontSize: '0.92rem' }}>Join 15,000+ verifiers earning from home</p>
